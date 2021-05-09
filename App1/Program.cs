@@ -7,16 +7,28 @@ namespace App1
     {
         static void Main(string[] args)
         {
-            Rectangle a = new Rectangle();
+            Funcionario funcionario1 = new Funcionario();
 
-            Console.WriteLine("Entre a largura e em seguida a altura do retângulo: ");
-            a.width = double.Parse(Console.ReadLine());
-            a.height = double.Parse(Console.ReadLine());
+            Console.Write("Nome: ");
+            funcionario1.Name = Console.ReadLine();
 
-            Console.WriteLine("Area = " + a.Area().ToString("f2", CultureInfo.InvariantCulture));
-            Console.WriteLine("Perimetro = " + a.Perimeter().ToString("f2", CultureInfo.InvariantCulture));
-            Console.WriteLine("Diagonal = " + a.Diagonal().ToString("f2", CultureInfo.InvariantCulture));
-            
+            Console.Write("Salario bruto: ");
+            funcionario1.Salary = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.Write("Imposto: ");
+            funcionario1.Imposto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine();
+            Console.Write("Funcionário: " + funcionario1);
+
+            Console.WriteLine();
+            Console.Write("Digite a porcentagem para aumentar o salario: ");
+            double porcentagem = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            funcionario1.AumentarSalario(porcentagem);
+
+            Console.WriteLine();
+            Console.WriteLine("Dados atualizados: " + funcionario1);
+
         }
     }
 }

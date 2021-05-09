@@ -7,38 +7,33 @@ namespace App1
     {
         static void Main(string[] args)
         {
+            Product p = new Product();
 
-            Triangle x, y;
+            Console.WriteLine("Entre os dados do produto: ");
+            Console.Write("Nome: ");
+            p.Nome = Console.ReadLine();
+            Console.Write("Preço: ");
+            p.Price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.Write("Quantidade: ");
+            p.Quantity = int.Parse(Console.ReadLine());
 
-            x = new Triangle();
-            y = new Triangle();
+            Console.WriteLine();
+            Console.WriteLine("Dados do produtos: " + p);
+            
+            Console.WriteLine();
+            Console.Write("Digite o número de produtos a ser adicionado ");
+            int qte = int.Parse(Console.ReadLine());
+            p.AddProduct(qte);
 
-            Console.WriteLine("Entre com as medidas do triângulo X:");
-            x.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            x.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            x.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.WriteLine();
+            Console.WriteLine("Datos atualizados: " + p);
 
-            Console.WriteLine("Entre com as medidas do triângulo Y:");
-            y.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            y.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            y.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-            double p = (x.A + x.B + x.C) / 2.0;
-            double areaX = Math.Sqrt(p * (p - x.A) * (p - x.B) * (p - x.C));
-
-            p = (y.A + y.B + y.C) / 2.0;
-            double areaY = Math.Sqrt(p * (p - y.A) * (p - y.B) * (p - y.C));
-
-            Console.WriteLine("Área de x = " + areaX.ToString("f4", CultureInfo.InvariantCulture));
-            Console.WriteLine("Área de y = " + areaY.ToString("f4", CultureInfo.InvariantCulture));
-
-            if (areaX > areaY)
-            {
-                Console.WriteLine("Mario área: X");
-            } else
-            {
-                Console.WriteLine("Mario área: Y");
-            }
+            Console.WriteLine();
+            Console.Write("Digite o número de produtos a ser removido ");
+            
+            qte = int.Parse(Console.ReadLine());
+            p.RemoveProduct(qte);
+            Console.WriteLine("Dados atualizados: " + p);
         }
     }
 }

@@ -7,28 +7,27 @@ namespace App1
     {
         static void Main(string[] args)
         {
-            Funcionario funcionario1 = new Funcionario();
+            Aluno aln1 = new Aluno();
 
-            Console.Write("Nome: ");
-            funcionario1.Name = Console.ReadLine();
+            Console.Write("Nome do aluno: ");
+            aln1.Name = Console.ReadLine();
 
-            Console.Write("Salario bruto: ");
-            funcionario1.Salary = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-            Console.Write("Imposto: ");
-            funcionario1.Imposto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-            Console.WriteLine();
-            Console.Write("Funcionário: " + funcionario1);
+            Console.WriteLine("Digite as três notas do aluno:");
+            aln1.Nota1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            aln1.Nota2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            aln1.Nota3 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
             Console.WriteLine();
-            Console.Write("Digite a porcentagem para aumentar o salario: ");
-            double porcentagem = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            funcionario1.AumentarSalario(porcentagem);
-
-            Console.WriteLine();
-            Console.WriteLine("Dados atualizados: " + funcionario1);
-
+            Console.WriteLine("Nota Final = " + aln1.NotaFinal().ToString("f2", CultureInfo.InvariantCulture));
+        
+            if (aln1.Aprovado())
+            {
+                Console.WriteLine("Aprovado");
+            } else
+            {
+                Console.WriteLine("Reprovado");
+                Console.WriteLine("Faltaram: " + aln1.NotaFaltante().ToString("f2", CultureInfo.InvariantCulture) + " PONTOS");
+            }
         }
     }
 }
